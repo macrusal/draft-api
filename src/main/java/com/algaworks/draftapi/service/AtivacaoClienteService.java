@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
  * @author macrusal on 31/08/21
  * @project exemplo-injecao-dependencia
  */
-@Component
 public class AtivacaoClienteService {
 
     private Notificador notificador;
