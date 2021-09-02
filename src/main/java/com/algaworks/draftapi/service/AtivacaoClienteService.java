@@ -15,13 +15,11 @@ import java.util.List;
 public class AtivacaoClienteService {
 
     @Autowired
-    private List<Notificador> notificadores;
+    private Notificador notificador;
 
     public void ativar( Cliente cliente ) {
         cliente.ativar();
 
-        for( Notificador notificador: notificadores ) {
-            notificador.notificar(cliente, "Cadastro ativado com sucesso!");
-        }
+        this.notificador.notificar(cliente, "Cadastro ativado com sucesso!");
     }
 }

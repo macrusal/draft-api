@@ -1,12 +1,15 @@
 package com.algaworks.draftapi.notificador;
 
 import com.algaworks.draftapi.modelo.Cliente;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
  * @author macrusal on 31/08/21
  * @project exemplo-injecao-dependencia
  */
+
+@Primary
 @Component
 public class NotificacaoEmail implements Notificador {
 
