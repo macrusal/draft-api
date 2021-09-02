@@ -5,6 +5,8 @@ import com.algaworks.draftapi.notificador.Notificador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author macrusal on 31/08/21
  * @project exemplo-injecao-dependencia
@@ -13,26 +15,13 @@ import org.springframework.stereotype.Component;
 public class AtivacaoClienteService {
 
     @Autowired
-    private Notificador notificador;
-
-//    public AtivacaoClienteService() {
-//    }
-//
-//    @Autowired
-//    public AtivacaoClienteService( Notificador notificador ) {
-//        this.notificador = notificador;
-//    }
+    private List<Notificador> notificadores;
 
     public void ativar( Cliente cliente ) {
         cliente.ativar();
-        this.notificador.notificar(cliente, "Cadastro ativado com sucesso!");
-    }
 
-    /**
-     * Sets notificador
-     */
-//    @Autowired
-//    public void setNotificador( Notificador notificador ) {
-//        this.notificador = notificador;
-//    }
+        for( Notificador notificador: notificadores ) {
+            notificador.notificar(cliente, "Cadastro ativado com sucesso!");
+        }
+    }
 }
