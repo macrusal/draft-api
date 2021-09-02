@@ -9,19 +9,19 @@ import org.springframework.stereotype.Component;
  * @project exemplo-injecao-dependencia
  */
 
-@Profile( "prod" )
+@Profile( "dev" )
 @TipoNotificador( NivelUrgencia.NORMMAL )
 @Component
-public class NotificacaoEmail implements Notificador {
+public class NotificacaoEmailMock implements Notificador {
 
-    public NotificacaoEmail() {
-        System.out.println("Notificador email produção");
+    public NotificacaoEmailMock() {
+        System.out.println("Notificador email desenvolvimento");
     }
 
     @Override
     public void notificar( Cliente cliente, String mensagem ) {
 
-        System.out.printf("Notificação enviada para o cliente %s através do e-mail %s: %s \n",
+        System.out.printf("MOCK - Notificação seria enviada para o cliente %s através do e-mail %s: %s \n",
                 cliente.getNome(), cliente.getEmail(), mensagem);
     }
 }
