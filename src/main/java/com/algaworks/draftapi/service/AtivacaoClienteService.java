@@ -1,10 +1,8 @@
 package com.algaworks.draftapi.service;
 
+import com.algaworks.draftapi.event.ClienteAtivadoEvent;
 import com.algaworks.draftapi.modelo.Cliente;
-import com.algaworks.draftapi.notificador.NivelUrgencia;
-import com.algaworks.draftapi.notificador.Notificador;
-import com.algaworks.draftapi.notificador.TipoNotificador;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
 
@@ -15,23 +13,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class AtivacaoClienteService {
 
-    @TipoNotificador( NivelUrgencia.NORMMAL )
-    @Autowired
-    private Notificador notificador;
+    private ApplicationEventPublisher eventPublisher;
 
-//    @PostConstruct
-    public void init() {
-        System.out.println("INIT " + notificador);
-    }
-
-//    @PreDestroy
-    public void destroy() {
-        System.out.println("DESTROY ");
+    public AtivacaoClienteService( ApplicationEventPublisher eventPublisher ) {
+        this.eventPublisher = eventPublisher;
     }
 
     public void ativar( Cliente cliente ) {
         cliente.ativar();
 
-        this.notificador.notificar(cliente, "Cadastro ativado com sucesso!");
+        eventPublisher.publishEvent( new ClienteAtivadoEvent(cliente) );
     }
 }
