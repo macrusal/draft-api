@@ -1,9 +1,10 @@
 package com.algaworks.draftapi.service;
 
 import com.algaworks.draftapi.modelo.Cliente;
+import com.algaworks.draftapi.notificador.NivelUrgencia;
 import com.algaworks.draftapi.notificador.Notificador;
+import com.algaworks.draftapi.notificador.TipoNotificador;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AtivacaoClienteService {
 
-    @Qualifier("email")
+    @TipoNotificador( NivelUrgencia.NORMMAL )
     @Autowired
     private Notificador notificador;
 
