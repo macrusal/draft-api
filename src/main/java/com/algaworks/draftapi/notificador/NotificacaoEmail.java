@@ -1,7 +1,7 @@
 package com.algaworks.draftapi.notificador;
 
 import com.algaworks.draftapi.modelo.Cliente;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @project exemplo-injecao-dependencia
  */
 
-@Primary
+@Qualifier("email")
 @Component
 public class NotificacaoEmail implements Notificador {
 

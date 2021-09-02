@@ -1,12 +1,15 @@
 package com.algaworks.draftapi.notificador;
 
 import com.algaworks.draftapi.modelo.Cliente;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
  * @author macrusal on 31/08/21
  * @project exemplo-injecao-dependencia
  */
+
+@Qualifier("sms")
 @Component
 public class NotificacaoSMS implements Notificador {
 
