@@ -2,7 +2,14 @@ spring:
   profiles:
     active: dev
 
+#notificador:
+#  email:
+#    host-servidor: draft-api.email.com.br
+#    port-servidor: 25
+
+#Adicionado após a implementação de NotificacaoEmail.java
+#O auto-complete Funciona em arquivo propertie e yml
 notificador:
   email:
     host-servidor: draft-api.email.com.br
-    port-servidor: 25
+    porta-servidor: 25
