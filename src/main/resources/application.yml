@@ -12,4 +12,33 @@ spring:
 notificador:
   email:
     host-servidor: draft-api.email.com.br
+    porta-servidor: 30
+
+server:
+  port: 8080
+---
+
+spring:
+  profiles:
+    active: test
+
+notificador:
+  email:
+    host-servidor: draft-api.email.com.br
+    porta-servidor: 31
+
+server:
+  port: 8081
+---
+
+spring:
+  profiles:
+    active: prod, default
+
+notificador:
+  email:
+    host-servidor: draft-api.email.com.br
     porta-servidor: 25
+
+server:
+  port: 8082
